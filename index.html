@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<link href="css/index.css" rel="stylesheet" type="text/css" />
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<div class="circular-bg">
+    <div class="moon"></div> 
+    <div class="snores">
+      <div class="snore snore1">Z</div>
+      <div class="snore snore2">Z</div>
+      <div class="snore snore3">Z</div>
+    </div>
+    <div class="santa">
+      <div class="disc"></div>
+      
+      <div class="hat">
+        <div class="hat-space"></div>
+      </div>
+      <div class="furr"></div>
+      
+      <div class="face">
+        <div class="eyebrows eyebrows--left"></div>
+        <div class="eyebrows eyebrows--right"></div>
+        <div class="nose"></div>
+        <div class="beard">
+          <div class="beard--left"></div>
+          <div class="beard--right"></div>
+        </div>
+        <div class="mouth"> </div>
+      </div>
+      <div class="hand--up">
+      <div class="arm--right"></div>
+        
+      <div class="hand--right"></div>
+        
+      </div>
+      <div class="hand--left"></div>
+      <div class="stomach">
+        <div class="belt-buckle"></div>
+      </div>
+      <div class="leg--up"></div>
+      <div class="leg--down"></div>
+      
+    </div>
+    <div class="christmas-tree">
+        <div class="tree-top4"></div>
+        <div class="tree-top3"></div>
+        <div class="tree-top2"></div>
+        <div class="tree-top1"></div>
+        <div class="tree-bottom"></div>
+    </div>
+    <div class="christmas-tree-small">
+        <div class="tree-top4"></div>
+        <div class="tree-top3"></div>
+        <div class="tree-top2"></div>
+        <div class="tree-top1"></div>
+        <div class="tree-bottom"></div>
+    </div>
+    <div class="christmas-tree-white">
+        <div class="tree-top4"></div>
+        <div class="tree-top3"></div>
+        <div class="tree-top2"></div>
+        <div class="tree-top1"></div>
+        <div class="tree-bottom"></div>
+    </div>
+    <div class="gift gift--orange">
+      <div class="gift-bow--left"></div>
+      <div class="gift-bow--right"></div>
+      <div class="gift-ribbon"></div>
+      <div class="gift-top"></div>
+      <div class="gift-bottom"></div>
+    </div>
+    <div class="gift">
+      <div class="gift-bow--left"></div>
+      <div class="gift-bow--right"></div>
+      <div class="gift-ribbon"></div>
+      <div class="gift-top"></div>
+      <div class="gift-bottom"></div>
+    </div>
+    <div class="dialog-box">
+      <form id="commentForm">
+        <textarea id="userInput" name="comentario" placeholder="Escribe aquí tu comentario"></textarea>
+        <div class="button-container">
+          <button type="button" onclick="enviarComentario()">Enviar</button>
+        </div>
+      </form>
+  </div>
+  <script>
+    function enviarComentario() {
+      var comentario = $("#userInput").val();
+    
+      $.ajax({
+        url: "guardar_comentario.php", // Archivo PHP para procesar el comentario
+        type: "POST",
+        data: { comentario: comentario },
+        success: function(response) {
+          alert("Comentario guardado exitosamente: " + response);
+        },
+        error: function(xhr, status, error) {
+          alert("Error al guardar el comentario");
+          console.error(error);
+        }
+      });
+    }
+    </script>
+      </div>
+    </div>
+  </div>
+  
+
+
+
