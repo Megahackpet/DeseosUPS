@@ -6,22 +6,30 @@
 <body>
 
 <h1>Mensajes:</h1>
+<div id="messages-container"></div>
 
-<?php
-// Consulta SQL para obtener mensajes
-$sql = "SELECT mensaje FROM tabla_mensajes";
-$result = $conn->query($sql);
+<script>
+// Realizar una solicitud para obtener los datos de la API
+fetch('URL_de_tu_API')
+  .then(response => response.json())
+  .then(data => {
+    // Manipular los datos recibidos
+    const messages = data.messages; // Suponiendo que la respuesta contiene un campo 'messages' con los mensajes
 
-if ($result->num_rows > 0) {
-    // Mostrar cada mensaje
-    while($row = $result->fetch_assoc()) {
-        echo "<p>" . $row["mensaje"] . "</p>";
-    }
-} else {
-    echo "No se encontraron mensajes.";
-}
-$conn->close();
-?>
+    // Mostrar los mensajes en HTML
+    const messagesContainer = document.getElementById('messages-container');
+
+    messages.forEach(message => {
+      const paragraph = document.createElement('p');
+      paragraph.textContent = message;
+      messagesContainer.appendChild(paragraph);
+    });
+  })
+  .catch(error => {
+    console.error('Error al obtener los mensajes:', error);
+  });
+
+</script>
 
 </body>
 </html>
